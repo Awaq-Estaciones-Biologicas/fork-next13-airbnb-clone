@@ -118,20 +118,17 @@ const SearchModal = () => {
   }, [step]);
 
   let bodyContent = (
-    <div className="flex flex-col gap-8">
-      <Heading
-        title="Where do you wanna go?"
-        subtitle="Find the perfect location!"
-      />
-      <CountrySelect 
-        value={location} 
-        onChange={(value) => 
-          setLocation(value as CountrySelectValue)} 
-      />
-      <hr />
-      <Map center={location?.latlng} />
-    </div>
-  )
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="When do you plan to go?"
+          subtitle="Make sure everyone is free!"
+        />
+        <Calendar
+          onChange={(value) => setDateRange(value.selection)}
+          value={dateRange}
+        />
+      </div>
+    )
 
   if (step === STEPS.DATE) {
     bodyContent = (
